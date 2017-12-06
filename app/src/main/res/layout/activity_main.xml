@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/lol"
+    android:layout_height="match_parent"
+    tools:context="avenview.navigationdrawerlockedtest2.MainActivity"
+    android:background="@color/lightGrey">
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:background="@color/panelGrey">
+
+        <ImageView
+            android:id="@+id/signProLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_avsignpro_white"
+            android:padding="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="50dp"/>
+
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/signProLogo"
+            android:orientation="vertical"
+            android:layout_above="@+id/avenviewLogo">
+
+            <ListView
+                android:id="@+id/list1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:dividerHeight="1dp"
+                android:divider="@color/panelGrey"
+                android:listSelector="@drawable/list_selector" />
+
+            <View
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height=".5dp"
+                android:background="@color/selectGrey"/>
+
+            <ListView
+                android:id="@+id/list2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:dividerHeight="1dp"
+                android:divider="@color/panelGrey"
+                android:listSelector="@drawable/list_selector" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/avenviewLogo"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_avenview_white"
+            android:layout_marginStart="10dp"
+            android:layout_above="@+id/tv"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logged in as: Admin"
+            android:textSize="10sp"
+            android:layout_alignParentBottom="true"
+            android:textColor="@drawable/white"
+            android:layout_marginStart="10dp"/>
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="5dp"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@+id/rl"
+        android:background="@color/avRed"
+        android:layout_marginStart="2dp"/>
+
+</RelativeLayout>

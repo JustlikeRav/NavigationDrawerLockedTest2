@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="panelGrey">#231F20</color>
+    <color name="selectGrey">#888888</color>
+    <color name="lightGrey">#E6E7E8</color>
+    <color name="avRed">#EB2227</color>
+
+</resources>
