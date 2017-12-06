@@ -97,6 +97,7 @@ public class MainActivity extends Activity {
 
                     sizeRulesExpand.height = (int) (50 * scale);
                     sizeRulesExpand.width = (int) (7.5 * scale);
+                    //df
                     ivLast.setLayoutParams(sizeRulesShort);
                 }
             }
