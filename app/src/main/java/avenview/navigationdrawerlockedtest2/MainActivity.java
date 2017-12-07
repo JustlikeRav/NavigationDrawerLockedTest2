@@ -1,6 +1,7 @@
 package avenview.navigationdrawerlockedtest2;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.transition.TransitionManager;
 import android.view.ContextThemeWrapper;
 import android.view.View;
@@ -79,8 +80,7 @@ public class MainActivity extends Activity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 final ViewGroup v = findViewById(R.id.lol);
                 TransitionManager.beginDelayedTransition(v);
-                if(lastView == view){
-                } else {
+                if(lastView != view){
                     //Make the last one short
                     ImageView ivSelect = view.findViewById(R.id.selectedGrad);
                     ImageView ivLast = lastView.findViewById(R.id.selectedGrad);
@@ -109,9 +109,35 @@ public class MainActivity extends Activity {
         list2.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(MainActivity.this, "You Clicked at " +options2[+ i], Toast.LENGTH_SHORT).show();
+                final ViewGroup v = findViewById(R.id.lol);
+                TransitionManager.beginDelayedTransition(v);
+                if(lastView != view){
+                    //Make the last one short
+                    ImageView ivSelect = view.findViewById(R.id.selectedGrad);
+                    ImageView ivLast = lastView.findViewById(R.id.selectedGrad);
+
+                    //Change the postion now
+                    ViewGroup.LayoutParams sizeRulesExpand = ivSelect.getLayoutParams();
+                    ViewGroup.LayoutParams sizeRulesShort = ivLast.getLayoutParams();
+
+                    //Calculate dimensions in DPs
+                    final float scale = getResources().getDisplayMetrics().density;
+
+                    sizeRulesExpand.height = (int) (50 * scale);
+                    sizeRulesExpand.width = (int) (75 * scale);
+                    ivSelect.setLayoutParams(sizeRulesExpand);
+
+                    sizeRulesShort.height = (int) (50 * scale);
+                    sizeRulesShort.width = (int) (7.5 * scale);
+                    ivLast.setLayoutParams(sizeRulesShort);
+
+                    //Make current view equal to the last view
+                    lastView = view;
+                }
             }
         });
+
+
     }
 
     public View getViewByPosition(int pos, ListView listView) {

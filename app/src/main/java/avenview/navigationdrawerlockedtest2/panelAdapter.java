@@ -36,17 +36,6 @@ class panelAdapter extends ArrayAdapter<String>
         if(rowView==null){
             LayoutInflater inflater = mActivity.getLayoutInflater();
             rowView = inflater.inflate(R.layout.list_row, null, true);
-//            if(i == 0){
-//                ImageView ivSelect = rowView.findViewById(R.id.selectedGrad);
-//                ViewGroup.LayoutParams sizeRulesExpand = ivSelect.getLayoutParams();
-//
-//                //Calculate dimensions in DPs
-//                final float scale = mResources.getDisplayMetrics().density;
-//
-//                sizeRulesExpand.height = (int) (50 * scale);
-//                sizeRulesExpand.width = (int) (75 * scale);
-//                ivSelect.setLayoutParams(sizeRulesExpand);
-//            }
         }
 
         TextView textView = rowView.findViewById(R.id.textEachOption);
