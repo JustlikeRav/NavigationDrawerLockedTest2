@@ -2,6 +2,7 @@ package avenview.navigationdrawerlockedtest2;
 
 import android.os.Bundle;
 import android.transition.TransitionManager;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
@@ -59,11 +60,11 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final panelAdapter adapter1 = new panelAdapter(MainActivity.this, options1, imageId1, selectedGradient1);
+        final panelAdapter adapter1 = new panelAdapter(MainActivity.this, options1, imageId1, selectedGradient1, getResources());
         list1 =  findViewById(R.id.list1);
         list1.setAdapter(adapter1);
 
-        panelAdapter adapter2 = new panelAdapter(MainActivity.this, options2, imageId2, selectedGradient2);
+        panelAdapter adapter2 = new panelAdapter(MainActivity.this, options2, imageId2, selectedGradient2, getResources());
         list2 =  findViewById(R.id.list2);
         list2.setAdapter(adapter2);
         lastView = getViewByPosition( 0, list1);
@@ -80,9 +81,9 @@ public class MainActivity extends Activity {
                 TransitionManager.beginDelayedTransition(v);
                 if(lastView == view){
                 } else {
+                    //Make the last one short
                     ImageView ivSelect = view.findViewById(R.id.selectedGrad);
                     ImageView ivLast = lastView.findViewById(R.id.selectedGrad);
-                    lastView = view;
 
                     //Change the postion now
                     ViewGroup.LayoutParams sizeRulesExpand = ivSelect.getLayoutParams();
@@ -95,10 +96,12 @@ public class MainActivity extends Activity {
                     sizeRulesExpand.width = (int) (75 * scale);
                     ivSelect.setLayoutParams(sizeRulesExpand);
 
-                    sizeRulesExpand.height = (int) (50 * scale);
-                    sizeRulesExpand.width = (int) (7.5 * scale);
-                    //df
+                    sizeRulesShort.height = (int) (50 * scale);
+                    sizeRulesShort.width = (int) (7.5 * scale);
                     ivLast.setLayoutParams(sizeRulesShort);
+
+                    //Make current view equal to the last view
+                    lastView = view;
                 }
             }
         });

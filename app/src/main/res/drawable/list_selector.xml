@@ -6,9 +6,9 @@
         android:drawable="@color/panelGrey" />
 
     <item android:state_pressed="true"
-        android:drawable="@color/selectGrey" />
+        android:drawable="@color/panelGrey" />
 
     <item android:state_selected="true"
         android:state_pressed="false"
-        android:drawable="@color/selectGrey" />
+        android:drawable="@color/panelGrey" />
 </selector>
